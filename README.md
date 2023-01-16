@@ -1,2 +1,2 @@
-# bookin-site
+# booking-site
 Test booking site for customer
