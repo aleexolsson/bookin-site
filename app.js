@@ -1,70 +1,41 @@
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-var min = "2022-12-12";
-var max = "2023-12-31";
-var dateDay = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Friday", "Lördag", "Söndag"];
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
+var app = express();
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-function X() {
-    console.log("hellllooooo")  
-}
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-width=0,height=0,left=-1000,top=-1000`;
-
-let hej = window.document.querySelector("button");
-console.log(hej);
-
-hej.addEventListener("click", function(){
-    window.open('bokning.html', 'theFrame', params);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
-function showIFrame() {
-    document.querySelector('.iframe').style.display = 'block';
-    document.querySelector('table').style.marginRight = "0";
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-}
-
-function marginChange() {
-
-window.document.querySelector('table').style.marginRight = "0";
-}
-
-/*hej.onclick = () => {
-    window.open('/bokning.html', 'theFrame', params);
-  };*/
-
-
-const showButton = document.getElementById('showDialog');
-const favDialog = document.getElementById('firstDialog');
-const outputBox = document.querySelector('output');
-const selectEl = firstDialog.querySelector('select');
-const confirmBtn = firstDialog.querySelector('#confirmBtn');
-
-// "Update details" button opens the <dialog> modally
-showButton.addEventListener('click', () => {
-    favDialog.showModal();
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
-// "Favorite animal" input sets the value of the submit button
-selectEl.addEventListener('change', (e) => {
-  confirmBtn.value = selectEl.value;
-});
-// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-favDialog.addEventListener('close', () => {
-  outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
-});
-  
 
-
-fetch('./data.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-
-
-
-const calendarName = odata.value.name;
-const spaceNonAvailable = odata
-const spaceAvailable =
-
-
+module.exports = app;
