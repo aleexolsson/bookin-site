@@ -39,3 +39,10 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+let button = document.getElementbyClassName("cell1");
+
+function showIFrame() {
+  document.querySelector("iframe").style.display = "block";
+}

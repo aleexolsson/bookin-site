@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b182580b-4eb7-48a7-828f-34a32467d12d/appservices/subscriptions/b182580b-4eb7-48a7-828f-34a32467d12d/resourceGroups/AppServiceQS-rg/providers/Microsoft.Web/sites/mvbokning",
+    "appService.deploySubpath": "."
+}

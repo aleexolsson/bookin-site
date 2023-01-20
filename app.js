@@ -39,3 +39,14 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+function showIFrame() {
+  document.querySelector("iframe").style.display = "block";
+}
+
+let button = document.getElementsById("showDialog");
+
+function first(){
+  document.getElementById("firstDialog").style.display = "block";
+}
