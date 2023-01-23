@@ -43,6 +43,8 @@ module.exports = app;
 
 function showIFrame() {
   document.querySelector("iframe").style.display = "block";
+  document.document("bokning.html").getElementById("firstDialog").style.display = "block";
+
 }
 
 let button = document.getElementsById("showDialog");
