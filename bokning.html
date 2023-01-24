@@ -15,12 +15,11 @@
 <body>
 
         
-            <form method="dialog" action="/action_page.php">
-               <p>
-              
+        <form method="dialog" action="/action_page.php">
+            <p>
 
                
-                <label class="form form-sec">Ämne</label>
+                <h3 class="form form-sec">Ämne</h3>
                 <input list="subjects">
                 <datalist id=subjects>
                     <option value="val-1"></option>
@@ -30,16 +29,14 @@
                     <option value="val-5"></option>
                 </datalist>
 
-                <label>Välj tid för möte: </label>
+                <h3>Välj tid för möte: </h3>
                     <select>
                         <option>14:00</option>
                         <option>16:00</option>
                         <option>17:00</option>
                         <option>18:00</option>
                     </select>
-                <h3 class="form-third">För- och efternamn</h3>
-                    <input type="text" id="fname" name="fname" required></input>
-                    <input type="text" id="lname" name="lname" required></input>
+                
                 
                 <h3 class="form form-fourth">Paket:</h3>
                 <input list="subjects">
@@ -51,9 +48,8 @@
                     <option value="val-5"></option>
                 </datalist>
 
-                <h3 class="form form-fifth">Årskurs: </h3> 
-
-                
+                <h3 class="form form-fifth">Årskurs: </h3>
+                  
                     <input type="checkbox" id="year-of-class" name="class">Årskurs 1 <br>
                     <input type="checkbox" id="year-of-class" name="class">Årskurs 2 <br>
                     <input type="checkbox" id="year-of-class" name="class">Årskurs 3 <br>
@@ -66,15 +62,25 @@
                     <input type="checkbox" id="year-of-class" name="class">Gymnasiet 1a år <br>
                     <input type="checkbox" id="year-of-class" name="class">Gymnasiet 2a år <br>
                     <input type="checkbox" id="year-of-class" name="class">Gymnasiet 3e år <br>
-
+                  
                 <h3 class="form form-sixth">Kommun:</h3>
                 <select id="county" name="county" size="">
 
                 </select>
                 <h3 for="quantity" class="form" required>Antal elever: </h3>
                     <input type="number" id="quantity" name="quantity" min="1" max="40">
+
+                <h3>Email:</h3>
+                <input type="text" name="email">
+
+                <h3>Lärare:</h3>
+                <h3 class="form-third">För- och efternamn</h3>
+                <input type="text" id="fname" name="fname" required></input><br>
+                <input type="text" id="lname" name="lname" required></input>
+
                 
-              </p>
+            
+            </p>
                
             <div>
                 <button value="cancel">Avbryt</button>

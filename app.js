@@ -41,9 +41,54 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 
+
+const api_url = 'https://api.kolada.se/v2/';
+
+async function getapi(url) {
+
+
+
+const response = await fetch('https://api.kolada.se/v2/');
+
+var data = await response.json();
+console.log(data);
+if (response) {
+  hideloader();
+}
+show(data);
+
+}
+
+getapi(api_url);
+
+function hideloader() {
+  document.getElementById("testing");
+
+}
+function show(data) {
+  let tab = 
+`<tr>
+    <th>Name</th>
+    <th>Office</th>
+    <th>test 3</th>
+    <th>test 4</th>
+
+  </tr>`
+
+  for (let r of data.list) {
+    tab += `<tr> 
+<td>${r.name} </td>
+<td>${r.office}</td>
+<td>${r.position}</td> 
+<td>${r.salary}</td>          
+</tr>`;
+}
+document.getElementById("testning-2").innerhtml = tab;
+}
+
 function showIFrame() {
   document.querySelector("iframe").style.display = "block";
-  document.document("bokning.html").getElementById("firstDialog").style.display = "block";
+  document.getElementById("firstDialog").style.display = "block";
 
 }
 
